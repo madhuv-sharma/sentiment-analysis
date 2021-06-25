@@ -9,13 +9,12 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 
 def getRawText():
-	while True:
-		print("Input a paragraph whose sentiments is to be analyzed :\n")
-		raw_text = input()
-		if raw_text == '' :
-			exit()
-		else :
-			return raw_text
+	print("Input a paragraph whose sentiments is to be analyzed :\n")
+	raw_text = input()
+	if raw_text == '' :
+		exit()
+	else :
+		return raw_text
 
 def removeSpecialChars(text):
 	return re.sub('[^a-zA-Z]', ' ', text)

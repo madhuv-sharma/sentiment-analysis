@@ -31,7 +31,7 @@ def doTextCleaning(text):
 
 	# Stopwords Removal and Lemmatization
 	lmtzr = WordNetLemmatizer()
-	text = [lmtzr.lemmatize(word, 'v') for word in text if not word in set(stopwords.words('english'))]
+	text = [lmtzr.lemmatize(word, 'v') for word in text if word not in set(stopwords.words('english'))]
 	
 	text = " ".join(text)
 	return text

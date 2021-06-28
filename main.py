@@ -8,6 +8,7 @@ from nltk.stem.wordnet import WordNetLemmatizer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 
+
 # Function to input Raw Text
 def getRawText():
 	print("Input a paragraph whose sentiments is to be analyzed :\n")
@@ -17,13 +18,16 @@ def getRawText():
 	else :
 		return raw_text
 
+
 # Removal of all Special Characters
 def removeSpecialChars(text):
 	return re.sub('[^a-zA-Z]', ' ', text)
 
+
 # Removal of Alpha-Numeric Words
 def removeAlphaNumericWords(text):
 	return re.sub("\S*\d\S*", "", text).strip()
+
 
 # TEXT PREPROCESSING/CLEANING Function
 def doTextCleaning(text):
@@ -35,6 +39,7 @@ def doTextCleaning(text):
 	
 	text = " ".join(text)
 	return text
+
 
 def getScore(text):
 	# Loading train.pkl
@@ -51,6 +56,7 @@ def getScore(text):
 	y_pred = mn.predict(Xt_vec) #Getting Score
 	return y_pred
 
+
 def main():
 	raw_text = getRawText() #Calling Function to get Raw Paragraph Input
 	cleaned_text = doTextCleaning(raw_text) #Calling Test Cleaning Function
@@ -62,6 +68,7 @@ def main():
 		print("Negative")
 	else :
 		print("Neutral")
+
 
 if __name__ == '__main__':
 	main()
